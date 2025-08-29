@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Full Stack Development</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="index.html">ePortfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+        <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navCollapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="fullstack.html">Full Stack</a></li>
+          <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+          <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+          <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+          <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-section">
+    <div class="section-card">
+      <h2>Full Stack Development — Detailed Explanation</h2>
+      <p class="lead-muted">What is Full Stack Dev?</p>
+      <p>
+        <strong>Full Stack Development</strong> is the practice of building an entire web application: the <em>frontend</em>
+        (what users interact with — HTML/CSS/JS), the <em>backend</em> (server logic, APIs), and the <em>database</em>
+        (data storage). A full-stack developer understands how data flows from the user interface to the server and back.
+      </p>
+      <p>
+        Typical stacks include: <strong>HTML/CSS/JS</strong> on the frontend, and <strong>Node.js/Express</strong>, <strong>Python/Django</strong>,
+        or <strong>PHP/Laravel</strong> on the backend, with databases like PostgreSQL, MySQL, or MongoDB.
+      </p>
+
+      <hr>
+
+      <h5>Working example (frontend → simulated backend)</h5>
+      <p class="small-note">This demo shows a frontend form sending data and receiving a simulated JSON response (no actual server required).</p>
+
+      <div class="demo-box">
+        <form id="fsForm">
+          <label for="fsMessage" class="form-label">Message to server</label>
+          <input id="fsMessage" type="text" placeholder="Type something..." />
+          <div class="mt-2 d-flex gap-2">
+            <button class="btn btn-sm btn-custom" type="submit">Send</button>
+            <button class="btn btn-sm btn-outline-secondary" type="reset">Clear</button>
+          </div>
+        </form>
+
+        <pre id="fsResult" class="code-snippet mt-3">Server response will show here...</pre>
+      </div>
+
+      <hr>
+
+      <h6>Server-side example (Express.js) — snippet</h6>
+      <pre class="code-snippet">// server.js (Node + Express)
+import express from 'express';
+const app = express();
+app.use(express.json());
+
+app.post('/api/echo', (req, res) => {
+  res.json({ ok: true, youSent: req.body.message, at: new Date().toISOString() });
+});
+
+app.listen(3000, () => console.log('API running on http://localhost:3000'));</pre>
+
+      <p class="small-note mb-0">In a real project the frontend would <code>fetch('/api/echo')</code> to send data to server.</p>
+    </div>
+    <hr>
+<h5>Working example (fetch mock user list)</h5>
+<p class="small-note">This simulates fetching data from a backend and rendering it on the page.</p>
+
+<div class="demo-box">
+  <button id="loadUsersBtn" class="btn btn-custom">Load Users</button>
+  <ul id="userList" class="mt-3"></ul>
+</div>
+
+  </main>
+
+  <footer class="site-footer"><div class="container">© 2025 Your Name</div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
